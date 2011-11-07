@@ -1,0 +1,9 @@
+
+*~
+*.pyc
+
+#  Distutils deployment files
+/MANIFEST
+/build
+/dist
+

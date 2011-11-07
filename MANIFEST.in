@@ -1,0 +1,2 @@
+include pip_requirements.txt
+include README.md
