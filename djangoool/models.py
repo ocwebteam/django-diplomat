@@ -3,8 +3,7 @@ import re
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
-from djangoool.model_fields import AutoSlugField
+from autoslug import AutoSlugField
 
 class ISOCountryManager(models.Manager):
 	"""Custom manager for the ISOCountry model."""
