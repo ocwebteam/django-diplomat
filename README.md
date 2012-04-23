@@ -9,7 +9,8 @@ Installation
 
 Add `djangoool` to your `INSTALLED_APPS`, then run the `syncdb` management command.
 This will create Django databases containing the information from the pycountry
-module.
+module.  If you need to manually resync the djangoool apps, you can always run
+the `djangoool_sync` management command.
 
 Usage
 -----
