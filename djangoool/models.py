@@ -1,9 +1,9 @@
 
 import re
 
+from autoslug import AutoSlugField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from autoslug import AutoSlugField
 
 class ISOCountryManager(models.Manager):
 	"""Custom manager for the ISOCountry model."""
@@ -12,16 +12,19 @@ class ISOCountryManager(models.Manager):
 		"""Return a queryset of countries sorted by their name."""
 		return self.order_by('name')
 
+	def get_by_natural_key(self, alpha3):
+		return self.get(alpha3=alpha3)
+
 class ISOCountry(models.Model):
 	"""A country covered by the ISO 3166-1 standard."""
 
 	objects = ISOCountryManager()
 
-	alpha2  	  = models.CharField(max_length=2, verbose_name=_("alpha-2 code"))
-	alpha3  	  = models.CharField(max_length=3, verbose_name=_("alpha-3 code"))
-	numeric 	  = models.CharField(max_length=3, verbose_name=_("numeric code"))
-	name          = models.CharField(max_length=75, verbose_name=_("name"))
-	slug          = AutoSlugField(max_length=75, verbose_name=_("slug"), populate_from="name")
+	alpha2  	  = models.CharField(max_length=2, verbose_name=_("alpha-2 code"), unique=True)
+	alpha3  	  = models.CharField(max_length=3, verbose_name=_("alpha-3 code"), unique=True)
+	numeric 	  = models.CharField(max_length=3, verbose_name=_("numeric code"), unique=True)
+	name          = models.CharField(max_length=75, verbose_name=_("name"), unique=True)
+	slug          = AutoSlugField(max_length=75, verbose_name=_("slug"), populate_from="name", unique=True)
 	official_name = models.CharField(max_length=75, verbose_name=_("official name"), null=True, blank=True)
 
 	class Meta:
@@ -30,6 +33,9 @@ class ISOCountry(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	def natural_key(self):
+		return (self.alpha3,)
 
 class ISOLanguageManager(models.Manager):
 	"""Custom manager for the ISOLanguage model."""
@@ -41,6 +47,9 @@ class ISOLanguageManager(models.Manager):
 	def alphabetical(self):
 		"""Return a queryset of all the languages sorted by their reference name."""
 		return self.order_by('name')
+
+	def get_by_natural_key(self, terminology):
+		return self.get(terminology=terminology)
 
 class ISOLanguage(models.Model):
 	"""A language covered by the ISO 639-2 standard."""
@@ -59,6 +68,9 @@ class ISOLanguage(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+	def natural_key(self):
+		return self.terminology
 
 	@property
 	def simple_name(self):
