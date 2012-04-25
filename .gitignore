@@ -2,8 +2,8 @@
 *~
 *.pyc
 
-#  Distutils deployment files
+# Deployment files
 /MANIFEST
 /build
 /dist
-
+*.egg-info
