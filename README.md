@@ -1,9 +1,10 @@
 Diplomat
 ========
 
-Django models for the countries and languages covered by the ISO 3166 and ISO 639
-standards, respectively.  Diplomat is implemented as a wrapper around a subset
-of pycountry, and its interface should feel familiar to users of that module.
+Diplomat provides Django models for the countries and languages covered by the 
+ISO 3166 and ISO 639 standards, respectively.  Diplomat is implemented as a 
+wrapper around a subset of pycountry, and its interface should feel familiar to 
+users of that module.
 
 Installation
 ============
