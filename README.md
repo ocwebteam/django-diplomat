@@ -76,20 +76,20 @@ Diplomat provides a series of simple form fields for selecting country and
 language objects.  These fields, which can be imported from `diplomat.fields`,
 are as follows:
 
-**LanguageChoiceField**
+**LanguageChoiceField**  
 A field for selecting a single usable language.
 
-**LanguageMultipleChoiceField**
+**LanguageMultipleChoiceField**  
 A field for selecting multiple usable languages.
 
-**BasicLanguageChoiceField**
+**BasicLanguageChoiceField**  
 A field for selecting a single basic language covered by ISO 639-1.
 
-**BasicLanguageMultipleChoiceField**
+**BasicLanguageMultipleChoiceField**  
 A field for selecting multiple basic languages covered by ISO 639-1.
 
-**CountryChoiceField**
+**CountryChoiceField**  
 A field for selecting a single country.
 
-**CountryMultipleChoiceField**
+**CountryMultipleChoiceField**  
 A field for selecting multiple countries.
