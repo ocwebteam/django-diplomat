@@ -1,31 +1,24 @@
 
-try:
-	from setuptools import setup
-except ImportError:
-	from ez_setup import use_setuptools
-	use_setuptools()
-	from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
-	name='djangoool',
-	version=__import__('djangoool').__version__,
-	description='A Django interface to the pycountry module.',
+	name='diplomat',
+	version=__import__('diplomat').__version__,
+	description='Language and country models for Django derived from the pycountry module.',
 	author='Justin Locsei',
 	author_email='justin.locsei@oberlin.edu',
-	url='http://github.com/cilcoberlin/djangoool/',
-	download_url='https://github.com/cilcoberlin/djangoool/zipball/master',
+	url='http://github.com/oberlin/diplomat/',
+	download_url='https://github.com/oberlin/diplomat/zipball/master',
 	long_description=open('README.md', 'r').read(),
-	packages=[
-		'djangoool',
-		'djangoool.management',
-		'djangoool.management.commands'
-	],
-	requires=[
-		'pycountry'
-	],
+	packages=find_packages(),
 	install_requires=[
+		'django-autoslug',
 		'pycountry'
 	],
+	include_package_data=True,
+	license="BSD",
+	platforms='any',
+	zip_safe=False,
 	classifiers=[
 		'Development Status :: 3 - Alpha',
 		'Environment :: Web Environment',
