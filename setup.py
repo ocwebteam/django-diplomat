@@ -2,13 +2,13 @@
 from setuptools import find_packages, setup
 
 setup(
-	name='diplomat',
+	name='django-diplomat',
 	version=__import__('diplomat').__version__,
 	description='Language and country models for Django derived from the pycountry module.',
 	author='Justin Locsei',
 	author_email='justin.locsei@oberlin.edu',
-	url='http://github.com/oberlin/diplomat/',
-	download_url='https://github.com/oberlin/diplomat/zipball/master',
+	url='http://github.com/oberlin/django-diplomat/',
+	download_url='https://github.com/oberlin/django-diplomat/zipball/master',
 	long_description=open('README.md', 'r').read(),
 	packages=find_packages(),
 	install_requires=[
