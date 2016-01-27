@@ -3,6 +3,7 @@ import re
 from autoslug import AutoSlugField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import python_2_unicode_compatible
 import pycountry
 
 
@@ -44,6 +45,7 @@ class ISOCountryPycountryManager(PycountryManager):
         return pycountry.countries
 
 
+@python_2_unicode_compatible
 class ISOCountry(models.Model):
     """A country covered by the ISO 3166-1 standard."""
 
@@ -63,7 +65,7 @@ class ISOCountry(models.Model):
         verbose_name = _("ISO 3166 country")
         verbose_name_plural = _("ISO 3166 countries")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
@@ -99,6 +101,7 @@ class ISOLanguagePycountryManager(PycountryManager):
         return pycountry.languages
 
 
+@python_2_unicode_compatible
 class ISOLanguage(models.Model):
     """A language covered by the ISO 639-2 standard."""
 
@@ -116,7 +119,7 @@ class ISOLanguage(models.Model):
         verbose_name = _("ISO 639 language")
         verbose_name_plural = _("ISO 639 languages")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def natural_key(self):
