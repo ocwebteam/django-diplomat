@@ -67,7 +67,7 @@ class ISOCountry(models.Model):
         return self.name
 
     def natural_key(self):
-        return self.alpha3
+        return [self.alpha3, ]
 
 
 class ISOLanguageManager(models.Manager):
@@ -120,7 +120,7 @@ class ISOLanguage(models.Model):
         return self.name
 
     def natural_key(self):
-        return self.terminology
+        return [self.terminology, ]
 
     @property
     def simple_name(self):
