@@ -1,9 +1,11 @@
+from __future__ import unicode_literals
 import re
 
 from autoslug import AutoSlugField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
+
 import pycountry
 
 
