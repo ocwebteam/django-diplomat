@@ -19,6 +19,9 @@ Diplomat's field models exactly mirror the attributes of the pycountry database
 objects that they imitate.  In addition to these attributes, custom manager
 methods are available for some of the objects provided by diplomat.
 
+You may use the sort_index to sort the countries by this field (descending) then by name.
+For example, you may want to have most used countries on top.
+
 Languages
 ---------
 
